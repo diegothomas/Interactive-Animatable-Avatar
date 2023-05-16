@@ -1,0 +1,58 @@
+class Parser(object):
+    pass
+
+def get_args():
+    MyAltParser = Parser()
+    setattr(MyAltParser,"save_dir",'./pretrained')
+    setattr(MyAltParser,'cuda_device','cuda:0')
+    setattr(MyAltParser,'num_layers',2)
+    setattr(MyAltParser,'learning_rate',2e-4)
+    setattr(MyAltParser,'alpha',0)
+    setattr(MyAltParser,'batch_size',256)
+    setattr(MyAltParser,'upsampling','linear')
+    setattr(MyAltParser,'downsampling','stride2')
+    setattr(MyAltParser,'batch_normalization',0)
+    setattr(MyAltParser,'activation','LeakyReLU')
+    setattr(MyAltParser,'rotation','quaternion')
+    setattr(MyAltParser,'data_augment',1)
+    setattr(MyAltParser,'epoch_num',20001)
+    setattr(MyAltParser,'window_size',64)
+    setattr(MyAltParser,'kernel_size',15)
+    setattr(MyAltParser,'base_channel_num',-1)
+    setattr(MyAltParser,'normalization',1)
+    setattr(MyAltParser,'verbose',0)
+    setattr(MyAltParser,'skeleton_dist',2)
+    setattr(MyAltParser,'skeleton_pool','mean')
+    setattr(MyAltParser,'extra_conv',0)
+    setattr(MyAltParser,'padding_mode','reflection')
+    setattr(MyAltParser,'dataset','Mixamo')
+    setattr(MyAltParser,'fk_world',0)
+    setattr(MyAltParser,'patch_gan',1)
+    setattr(MyAltParser,'debug',0)
+    setattr(MyAltParser,'skeleton_info','concat')
+    setattr(MyAltParser,'ee_loss_fact','height')
+    setattr(MyAltParser,'pos_repr','3d')
+    setattr(MyAltParser,'D_global_velo',0)
+    setattr(MyAltParser,'gan_mode','lsgan')
+    setattr(MyAltParser,'pool_size',50)
+    setattr(MyAltParser,'is_train',1)
+    setattr(MyAltParser,'model','mul_top_mul_ske')
+    setattr(MyAltParser,'epoch_begin',0)
+    setattr(MyAltParser,'lambda_rec',5)
+    setattr(MyAltParser,'lambda_cycle',5)
+    setattr(MyAltParser,'lambda_ee',100)
+    setattr(MyAltParser,'lambda_global_pose',2.5)
+    setattr(MyAltParser,'ee_velo',1)
+    setattr(MyAltParser,'ee_from_root',1)
+    setattr(MyAltParser,'scheduler','none')
+    setattr(MyAltParser,'rec_loss_mode','extra_global_pos')
+    setattr(MyAltParser,'adaptive_ee',0)
+    setattr(MyAltParser,'simple_operator',0)
+    setattr(MyAltParser,'use_sep_ee',0)
+    setattr(MyAltParser,'eval_seq',0)
+    return MyAltParser
+
+
+
+
+

@@ -1,0 +1,59 @@
+mode                        : ???                 #"train" or "test"
+type                        : "clothes"           #"naked" or "clothes" or "color" or "clothes_and_color"
+                                                          ###naked   → naked only , 
+                                                          ###clothes → clothes only 
+                                                          ###color   → color only 
+                                                          ###clothes_and_color → train clothes and color together
+                                          
+test_type                   : "clothes"                   #"naked" or "clothes" or "color" or "clothes_and_color"
+                                                          ###naked   → naked only (from texture), 
+                                                          ###clothes → naked + clothes 
+                                                          ###color   → naked + clothes + color 
+                                                          ###clothes_and_color → test from "naked" + "clothes and color" 
+
+rundir_header               : "../../rundir_all"
+reconst                     : "D:/Project/Human/AITS/reconst_0218_vs_pop_sigma4/9"
+duplicate_smpl_flg          : true
+naked_texture_type          : "Posed"       #"Canonical" or "Posed"
+naked_topology              : "Outershell"  #"Outershell" or "SMPL"
+
+#train
+train_datasetroot           : "Z:/Human/b20-kitamura/AvatarInTheShell_datasets/Cape_POP/AITS/03375_blazerlong/blazerlong_volleyball_trial1/data/Texture_2path_All_pop"
+Canonical_Mesh_folder       : "Z:/Human/b20-kitamura/AvatarInTheShell_datasets/Cape_POP/AITS/03375_blazerlong/blazerlong_volleyball_trial1/data/Texture_2path_All_pop" #できれば、train_datasetrootとマージする
+train_datasetroots_txt_path : 
+texture_naked_dir_name      : 
+save_only_best              : true
+save_skip                   : true
+train_continue_flg          : false       #continue from cp
+cp_continue                 : 
+
+overfit_flg                 : false       #if true → val_ratio = 0.0
+val_ratio                   : 0.1
+
+artifact_save_every_epoch   : 100
+cp_save_every_epoch         : 300
+
+#test
+smpl_folder_path_test       : "Z:/Human/b20-kitamura/AvatarInTheShell_datasets/Cape_POP/AITS/03375_blazerlong/blazerlong_volleyball_trial1/retarget_motion/climb_trial2/data/smplparams_for_poptest" 
+cp_clothes_inference        : "latest"     #"latest" or specific path
+cp_naked_inference          : "smplpytorch"     #"smplpytorch" or "latest" or specific path #"/mnt/d/Project/Human/Avatar-In-The-Shell/rundir_naked/saved_models/cp/best/gen.pth.tar"
+cp_color_inference          : "latest"     #"latest" or specific path
+cp_clothes_and_color_inference : "latest"  #"latest" or specific path
+smpl_gender                 : "neutral"    #our_dataset → "neutral" , cape dataset → Need to select from ("neutral" , "male" , "female")
+save_mode                   : "result"                     #debug   → save all artifacts
+                                                          #result  → save only final result
+                                                          #display → show results but not save
+                                                          #blank   → not save (most fast!)
+save_predict_path          : 
+
+#reconst
+Replace_on_the_   : "mesh"            #"texture" or "mesh" or blank
+reconst_mode                : 1       #Choose from 0 : 1path 
+                                      #            1 : 2path(use original_local_coordinate_system) 
+                                      #            2 : 2path(define new_local_coordinate system)
+
+IDstart                     : -999
+IDend                       : -999
+IDstep                      : -999
+#Test with interpolation motion : [for i in range(IDstart , IDend , IDstep)]
+#If any of them is -999, use all motions.

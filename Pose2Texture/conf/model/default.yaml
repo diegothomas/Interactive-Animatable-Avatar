@@ -1,0 +1,75 @@
+num_epoch   : 3000
+Mybatch_size  : 5
+
+texture_disp_loss   : "l1"
+texture_color_loss  : "l1"
+init_lr             : 1e-04 #naked→1e-03 , clothes→1e-04
+loss_weight_disp    : 1
+loss_weight_color   : 0.001
+loss_weight_ssim    : 0.0
+loss_weight_hist    : 0.01
+loss_weight_disp_mask : 1
+
+multi_topology_flg    : false
+separate_flg          : true
+use_lr_scheduler      : true
+lr_scheduler_patience : 20 
+prediction_texture_mask : true
+
+#skeleton-aware
+aware:
+  - save_dir        : './pretrained'
+  - num_layers      : 2
+  - cuda_device     : cuda:0'
+  - learning_rat    : 2e-4
+  - alpha           : 0
+  - batch_size      : 256
+  - upsampling      : 'linear'
+  - batch_normalization : 0
+  - downsampling    : 'stride2'
+  - activation      : 'LeakyReLU'
+  - rotation        : 'quaternion'
+  - data_augment    : 1
+  - epoch_num       : 20001
+  - window_size     : 64
+  - kernel_size     : 15
+  - base_channel_num : -1
+  - normalization   : 1
+  - verbose         : 0
+  - skeleton_dist   : 2
+  - skeleton_pool   : 'mean'
+  - extra_conv      : 0
+  - padding_mode    : 'reflection'
+  - dataset         : 'Mixamo'
+  - fk_world        : 0
+  - patch_gan       : 1
+  - debug           : 0
+  - skeleton_info   : 'concat'
+  - ee_loss_fact    : 'height'
+  - pos_repr        : '3d'
+  - D_global_velo   : 0
+  - gan_mode        : 'lsgan'
+  - pool_size       : 50
+  - is_train        : 1
+  - model           : 'mul_top_mul_ske'
+  - epoch_begin     : 0
+  - lambda_rec      : 5
+  - lambda_cycle    : 5
+  - lambda_ee       : 100
+  - lambda_global_pose : 2.5
+  - lambda_position : 1
+  - ee_velo         : 1
+  - ee_from_root    : 1
+  - scheduler       : 'none'
+  - rec_loss_mode   : 'extra_global_pos'
+  - adaptive_ee     : 0
+  - simple_operator : 0
+  - use_sep_ee      : 0
+  - eval_seq        : 0
+
+
+
+
+  
+
+

@@ -1,0 +1,5 @@
+smpl_format       : "bin"         #TODO:"bin" or "npz" →自動判定にする
+norm_a            : 4
+#fixed_gamma       : 0.055
+Orthonormalize    : false
+use_beta          : false

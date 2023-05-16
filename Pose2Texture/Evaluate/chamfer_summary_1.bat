@@ -1,0 +1,7 @@
+call chamfer_distance_pop_etp.bat
+
+call chamfer_distance_pop_itp.bat
+
+call chamfer_distance_vs_pop_etp.bat
+
+call chamfer_distance_vs_pop_itp.bat
